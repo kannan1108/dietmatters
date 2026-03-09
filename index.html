@@ -564,14 +564,129 @@
   </div>
 </section>
 
-<!-- CTA -->
+<!-- CTA + EMAIL CAPTURE -->
 <section class="cta-section">
-  <p class="section-label reveal">The movement</p>
-  <h2 class="cta-title reveal">The full story<br>is on PeaceLoka.</h2>
-  <p class="cta-sub reveal">Health of mind, spirit, and body. I'm building it in public. Come watch.</p>
-  <a href="https://instagram.com/peaceloka" class="cta-btn reveal" target="_blank">Follow @peaceloka</a>
-  <p class="cta-handle reveal">instagram.com/peaceloka</p>
+  <p class="section-label reveal">Get the guide</p>
+  <h2 class="cta-title reveal">7 days.<br>4 principles.<br><em style="font-style:italic;color:var(--gold)">Your body back.</em></h2>
+  <p class="cta-sub reveal">I'll send you exactly what I did — one day at a time. Free. No program to buy. Just the truth.</p>
+
+  <div class="email-form reveal" id="form-wrap">
+    <div class="form-row">
+      <input type="text" id="firstName" placeholder="First name" autocomplete="given-name" />
+      <input type="email" id="email" placeholder="Email address" autocomplete="email" />
+      <button onclick="submitForm()">Get the 7 days</button>
+    </div>
+    <p class="form-note">No spam. Ever. Unsubscribe anytime.</p>
+  </div>
+
+  <div id="form-success" style="display:none;">
+    <p class="success-msg">You're in. Day 1 arrives tomorrow. — KZ</p>
+  </div>
+
+  <div class="insta-cta reveal">
+    <p>Following the journey in real time →</p>
+    <a href="https://instagram.com/peaceloka" target="_blank">@peaceloka</a>
+  </div>
 </section>
+
+<style>
+.email-form { max-width: 600px; margin: 0 auto 40px; }
+.form-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.form-row input {
+  flex: 1;
+  min-width: 160px;
+  padding: 16px 20px;
+  background: rgba(245,240,232,0.08);
+  border: 1px solid rgba(245,240,232,0.15);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+.form-row input::placeholder { color: rgba(245,240,232,0.3); }
+.form-row input:focus { border-color: var(--gold); }
+.form-row button {
+  padding: 16px 32px;
+  background: var(--gold);
+  color: var(--charcoal);
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+.form-row button:hover { background: var(--cream); transform: translateY(-2px); }
+.form-note {
+  margin-top: 14px;
+  font-size: 12px;
+  color: rgba(245,240,232,0.25);
+  letter-spacing: 0.05em;
+}
+.success-msg {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-style: italic;
+  color: var(--gold);
+  margin-bottom: 40px;
+}
+.insta-cta {
+  margin-top: 48px;
+  border-top: 1px solid rgba(245,240,232,0.08);
+  padding-top: 32px;
+}
+.insta-cta p {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.3);
+  margin-bottom: 10px;
+}
+.insta-cta a {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.insta-cta a:hover { color: var(--gold); }
+</style>
+
+<script>
+async function submitForm() {
+  const firstName = document.getElementById('firstName').value.trim();
+  const email = document.getElementById('email').value.trim();
+
+  if (!firstName || !email) {
+    alert('Please enter your first name and email.');
+    return;
+  }
+
+  const btn = document.querySelector('.form-row button');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  try {
+    await fetch('https://script.google.com/macros/s/AKfycbxRkRocX7-cmARn0_rI3XRVE6yw3i0lMRNWygR1QqRPuA58s9rCA0MO18iXoXWd8Hy4Bg/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ firstName, email })
+    });
+  } catch(e) {}
+
+  document.getElementById('form-wrap').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}
+</script>
 
 <footer>
   <p>dietmatters.net &nbsp;·&nbsp; Part of the <a href="https://peaceloka.com">PeaceLoka</a> movement &nbsp;·&nbsp; Help Ever. Hurt Never.</p>
