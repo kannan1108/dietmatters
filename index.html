@@ -675,12 +675,10 @@ async function submitForm() {
   btn.disabled = true;
 
   try {
-    await fetch('https://script.google.com/macros/s/AKfycbxRkRocX7-cmARn0_rI3XRVE6yw3i0lMRNWygR1QqRPuA58s9rCA0MO18iXoXWd8Hy4Bg/exec', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ firstName, email })
-    });
+    const url = new URL('https://script.google.com/macros/s/AKfycbwkZ4EVk0nORHtHMDLiVGJe8Me_gjx1911z7r_BA-H6kPxDFjXk90A36X5EeGlDYiKZRw/exec');
+    url.searchParams.append('firstName', firstName);
+    url.searchParams.append('email', email);
+    await fetch(url.toString(), { method: 'GET', mode: 'no-cors' });
   } catch(e) {}
 
   document.getElementById('form-wrap').style.display = 'none';
