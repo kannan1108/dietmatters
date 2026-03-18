@@ -538,6 +538,7 @@ src="https://www.facebook.com/tr?id=1534580608014637&ev=PageView&noscript=1"
       const url = new URL('https://script.google.com/macros/s/AKfycbwiS2lQ0yoGhvK1YF9xrG3pkWrYnOO7lvbrdWOeJDj-4GBQVkxxOCAtpMy9Poue_gLaDg/exec');
       
       url.searchParams.append('email', email);
+      url.searchParams.append('source', 'dietmatters.net/start');
       await fetch(url.toString(), {method:'GET', mode:'no-cors'});
     } catch(e) {}
     document.getElementById('form-wrap').style.display = 'none';
