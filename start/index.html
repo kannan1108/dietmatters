@@ -535,7 +535,7 @@ src="https://www.facebook.com/tr?id=1534580608014637&ev=PageView&noscript=1"
     btn.textContent = 'Sending...';
     btn.disabled = true;
     try {
-      const url = new URL('https://script.google.com/macros/s/AKfycbyyJ3T_XLkDHb5W0uBb_gGleDvBdQ5czlpdK_ykFPJxkKx7SRAtWlGa0FqWLpG7qCyhCA/exec');
+      const url = new URL('https://script.google.com/macros/s/AKfycbwiS2lQ0yoGhvK1YF9xrG3pkWrYnOO7lvbrdWOeJDj-4GBQVkxxOCAtpMy9Poue_gLaDg/exec');
       url.searchParams.append('firstName', firstName);
       url.searchParams.append('email', email);
       await fetch(url.toString(), {method:'GET', mode:'no-cors'});
