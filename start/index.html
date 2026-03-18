@@ -530,13 +530,13 @@ src="https://www.facebook.com/tr?id=1534580608014637&ev=PageView&noscript=1"
   async function submitForm() {
     const firstName = document.getElementById('firstName').value.trim();
     const email = document.getElementById('email').value.trim();
-    if(!firstName || !email) { alert('Please enter your first name and email.'); return; }
+    if(!email) { alert('Please enter your first name and email.'); return; }
     const btn = document.querySelector('.form-stack button');
     btn.textContent = 'Sending...';
     btn.disabled = true;
     try {
       const url = new URL('https://script.google.com/macros/s/AKfycbwiS2lQ0yoGhvK1YF9xrG3pkWrYnOO7lvbrdWOeJDj-4GBQVkxxOCAtpMy9Poue_gLaDg/exec');
-      url.searchParams.append('firstName', firstName);
+      
       url.searchParams.append('email', email);
       await fetch(url.toString(), {method:'GET', mode:'no-cors'});
     } catch(e) {}
