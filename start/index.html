@@ -461,10 +461,10 @@ src="https://www.facebook.com/tr?id=1534580608014637&ev=PageView&noscript=1"
 
 <!-- THREE OPTIONS -->
 <section class="options-section">
-  <h2 class="reveal">Three ways <em>in.</em></h2>
-  <p class="options-sub reveal">Choose what works for you right now. All three lead to the same place.</p>
+  <h2 class="reveal">Two ways <em>in.</em></h2>
+  <p class="options-sub reveal">Choose what works for you right now.</p>
 
-  <div class="three-grid reveal">
+  <div class="three-grid reveal" style="grid-template-columns:1fr 1fr;max-width:800px;margin:0 auto;">
 
     <!-- FREE -->
     <div class="opt">
@@ -474,8 +474,7 @@ src="https://www.facebook.com/tr?id=1534580608014637&ev=PageView&noscript=1"
       <p>Your email. My story and the six decisions overview — sent to you right now. No series to wait for. Just the truth, immediately.</p>
       <div id="form-wrap">
         <div class="form-stack">
-          <input type="text" id="firstName" placeholder="First name">
-          <input type="email" id="email" placeholder="Email address">
+<input type="email" id="email" placeholder="Email address">
           <button onclick="submitForm()">Send it now</button>
         </div>
         <p class="opt-note">No spam. Unsubscribe anytime.</p>
@@ -495,15 +494,6 @@ src="https://www.facebook.com/tr?id=1534580608014637&ev=PageView&noscript=1"
       <p class="opt-note">Instant PDF via Gumroad. No waiting.</p>
     </div>
 
-    <!-- $88 BUNDLE -->
-    <div class="opt">
-      <span class="opt-tag">The full commitment</span>
-      <div class="opt-price">$88</div>
-      <h3>The Starter Kit — Protocol + Hoodie</h3>
-      <p>The full protocol PDF delivered instantly. Plus the Founding Hoodie — Lane Seven premium fleece, small embroidered "Help Ever. Hurt Never." on the chest. Wear the decision.</p>
-      <a href="https://peaceloka.com" class="btn-cream" target="_blank">Get the starter kit — $88</a>
-      <p class="opt-note">PDF instant. Hoodie ships within 5–7 days.</p>
-    </div>
 
   </div>
 </section>
@@ -528,9 +518,8 @@ src="https://www.facebook.com/tr?id=1534580608014637&ev=PageView&noscript=1"
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
   async function submitForm() {
-    const firstName = document.getElementById('firstName').value.trim();
     const email = document.getElementById('email').value.trim();
-    if(!email) { alert('Please enter your first name and email.'); return; }
+    if(!email) { alert('Please enter your email.'); return; }
     const btn = document.querySelector('.form-stack button');
     btn.textContent = 'Sending...';
     btn.disabled = true;
