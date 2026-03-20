@@ -669,12 +669,11 @@ src="https://www.facebook.com/tr?id=1534580608014637&ev=PageView&noscript=1"
       <div class="cta-box">
         <span class="cta-box-label">Free</span>
         <h3>The 7-Day Email Series</h3>
-        <p>One email a day for seven days. Each decision explained in full — the science, the struggle, what actually changed. No program to buy. Just the truth, delivered daily.</p>
+        <p>My story and the six decisions — sent to you right now. The science, the struggle, what actually changed. No program to buy. Just the truth, immediately.</p>
         <div id="form-wrap">
           <div class="form-stack">
-            <input type="text" id="firstName" placeholder="First name" autocomplete="given-name">
-            <input type="email" id="email" placeholder="Email address" autocomplete="email">
-            <button onclick="submitForm()">Send me the series</button>
+<input type="email" id="email" placeholder="Email address" autocomplete="email">
+            <button onclick="submitForm()">Send it now</button>
           </div>
           <p class="form-note">No spam. Ever. Unsubscribe anytime.</p>
         </div>
@@ -715,15 +714,13 @@ src="https://www.facebook.com/tr?id=1534580608014637&ev=PageView&noscript=1"
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   async function submitForm() {
-    const firstName = document.getElementById('firstName').value.trim();
     const email = document.getElementById('email').value.trim();
-    if (!firstName || !email) { alert('Please enter your first name and email.'); return; }
+    if (!email) { alert('Please enter your email.'); return; }
     const btn = document.querySelector('.form-stack button');
     btn.textContent = 'Sending...';
     btn.disabled = true;
     try {
       const url = new URL('https://script.google.com/macros/s/AKfycbwiS2lQ0yoGhvK1YF9xrG3pkWrYnOO7lvbrdWOeJDj-4GBQVkxxOCAtpMy9Poue_gLaDg/exec');
-      url.searchParams.append('firstName', firstName);
       url.searchParams.append('email', email);
     url.searchParams.append('source', 'dietmatters.net');
       await fetch(url.toString(), { method: 'GET', mode: 'no-cors' });
