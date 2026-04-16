@@ -467,7 +467,7 @@
       btn.textContent = "Sending...";
       btn.disabled = true;
       try {
-        const url = new URL("https://script.google.com/macros/s/AKfycbwiS2lQ0yoGhvK1YF9xrG3pkWrYnOO7lvbrdWOeJDj-4GBQVkxxOCAtpMy9Poue_gLaDg/exec");
+        const url = new URL("https://script.google.com/macros/s/AKfycby_a_tBsU3FUjs5YGwjg429LsYw4Jn2k7RxK6xxQZonAcwC5fDOK2ArrG35yipqbbMT8w/exec");
         url.searchParams.append("email", email);
         url.searchParams.append("source", "dietmatters.net/start");
         await fetch(url.toString(), { method: "GET", mode: "no-cors" });
